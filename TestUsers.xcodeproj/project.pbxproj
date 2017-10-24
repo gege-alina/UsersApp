@@ -15,6 +15,8 @@
 		2E0592CD1F9A3EEE00B2C4AB /* TestUsersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0592CC1F9A3EEE00B2C4AB /* TestUsersUITests.swift */; };
 		2E0633BC1F9F2FB0002857FC /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0633BB1F9F2FB0002857FC /* UserPageViewController.swift */; };
 		2E0633BE1F9F3352002857FC /* IndexCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0633BD1F9F3352002857FC /* IndexCollectionViewController.swift */; };
+		2E0633C11F9F3ABE002857FC /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0633BF1F9F3ABE002857FC /* UserCollectionViewCell.swift */; };
+		2E0633C21F9F3ABE002857FC /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E0633C01F9F3ABE002857FC /* UserCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2E0592CE1F9A3EEE00B2C4AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E0633BB1F9F2FB0002857FC /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		2E0633BD1F9F3352002857FC /* IndexCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexCollectionViewController.swift; sourceTree = "<group>"; };
+		2E0633BF1F9F3ABE002857FC /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E0633C01F9F3ABE002857FC /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				2E0592B31F9A3EEE00B2C4AB /* Assets.xcassets */,
 				2E0592B51F9A3EEE00B2C4AB /* LaunchScreen.storyboard */,
 				2E0592B81F9A3EEE00B2C4AB /* Info.plist */,
+				2E0633BF1F9F3ABE002857FC /* UserCollectionViewCell.swift */,
+				2E0633C01F9F3ABE002857FC /* UserCollectionViewCell.xib */,
 			);
 			path = TestUsers;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E0592B71F9A3EEE00B2C4AB /* LaunchScreen.storyboard in Resources */,
+				2E0633C21F9F3ABE002857FC /* UserCollectionViewCell.xib in Resources */,
 				2E0592B41F9A3EEE00B2C4AB /* Assets.xcassets in Resources */,
 				2E0592B21F9A3EEE00B2C4AB /* Main.storyboard in Resources */,
 			);
@@ -263,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E0633BC1F9F2FB0002857FC /* UserPageViewController.swift in Sources */,
+				2E0633C11F9F3ABE002857FC /* UserCollectionViewCell.swift in Sources */,
 				2E0592AD1F9A3EEE00B2C4AB /* AppDelegate.swift in Sources */,
 				2E0633BE1F9F3352002857FC /* IndexCollectionViewController.swift in Sources */,
 			);

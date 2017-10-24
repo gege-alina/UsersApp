@@ -9,6 +9,8 @@
 import UIKit
 
 private let reuseIdentifier = "UserCell"
+private let itemsPerRow: CGFloat = 3
+private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
 
 class IndexCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,7 +19,7 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
         super.viewDidLoad()
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserCell")
 
         self.title = "Users"
 
@@ -60,10 +62,10 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserCollectionViewCell
     
         // Configure the cell
-        cell.backgroundColor = UIColor.red
+        //cell.backgroundColor = UIColor.red
     
         return cell
     }
@@ -98,5 +100,32 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
     
     }
     */
-
 }
+
+    extension IndexCollectionViewController : UICollectionViewDelegateFlowLayout {
+        //1
+        func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            sizeForItemAt indexPath: IndexPath) -> CGSize {
+            //2
+            let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+            let availableWidth = self.view.frame.width - paddingSpace
+            let widthPerItem = availableWidth / itemsPerRow
+
+            return CGSize(width: widthPerItem, height: widthPerItem)
+        }
+
+        //3
+        func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            insetForSectionAt section: Int) -> UIEdgeInsets {
+            return sectionInsets
+        }
+
+        // 4
+        func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return sectionInsets.left
+        }
+    }
