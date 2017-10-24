@@ -18,13 +18,7 @@ class UserPageViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
 
-    var url: String?
-    var name: String?
-    var detail: String?
-    var username: String?
-    var email: String?
-    var phone: String?
-    var address: String?
+    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()

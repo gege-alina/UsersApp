@@ -15,11 +15,13 @@ private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, ri
 class IndexCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
 
+    var allUsers: [User]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Register cell classes
-        self.collectionView!.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserCell")
+        self.collectionView!.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
 
         self.title = "Users"
 
@@ -31,6 +33,25 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
         favourite.sizeToFit()
         //button.addTarget(self, action: #selector(self.someAction), forControlEvents: .TouchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: favourite)
+
+        allUsers = [User]()
+
+        let manager: APIManager = APIManager()
+        manager.getUsers(withURL: "https://randomuser.me/api/?page=0&results=10&seed=abc") { [weak self] (users:Dictionary<String, Any>) in
+            guard let weakSelf = self else {
+                return
+            }
+            if let results = users[Constants.resultsKey] as? [Dictionary<String, Any>]{
+                for user in results {
+                    let newUser = User(withDict: user)
+                    print(newUser)
+                    weakSelf.allUsers?.append(newUser)
+                }
+                DispatchQueue.main.async {
+                    weakSelf.collectionView.reloadData()
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,20 +79,23 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 3
+        if let users = self.allUsers {
+            return users.count
+        }
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserCollectionViewCell
     
         // Configure the cell
-        //cell.backgroundColor = UIColor.red
-    
+        cell.user = self.allUsers?[indexPath.item]
+
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showUser", sender: nil)
+        performSegue(withIdentifier: Constants.showUsersSegue, sender: nil)
     }
 
     // MARK: UICollectionViewDelegate
@@ -111,7 +135,7 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
-        if segue.identifier == "showUser" {
+        if segue.identifier == Constants.showUsersSegue {
             
         }
      }
