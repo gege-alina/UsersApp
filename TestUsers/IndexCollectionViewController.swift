@@ -138,9 +138,6 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
             
         }
      }
-
-
-    
 }
 
     extension IndexCollectionViewController : UICollectionViewDelegateFlowLayout {
