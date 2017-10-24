@@ -10,10 +10,44 @@ import UIKit
 
 class UserPageViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+
+    var url: String?
+    var name: String?
+    var detail: String?
+    var username: String?
+    var email: String?
+    var phone: String?
+    var address: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let favourite = UIButton(type: .system)
+        favourite.setImage(UIImage(named: "star"), for: .normal)
+        favourite.sizeToFit()
+
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "star"), for: .normal)
+        button.sizeToFit()
+
+        //button.addTarget(self, action: #selector(self.someAction), forControlEvents: .TouchUpInside)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favourite), UIBarButtonItem(customView: button)]
+
         // Do any additional setup after loading the view.
+        self.titleLabel.text = "Hello"
+        self.subtitleLabel.text = "world"
+
+        self.usernameLabel.text = "username"
+        self.emailLabel.text = "email"
+        self.phoneLabel.text = "phone"
+        self.addressLabel.text = "address"
     }
 
     override func didReceiveMemoryWarning() {

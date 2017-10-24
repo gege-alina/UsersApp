@@ -26,11 +26,11 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
         let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)//#selector(addTapped))
         navigationItem.rightBarButtonItem = edit
 
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "star"), for: .normal)
-        button.sizeToFit()
+        let favourite = UIButton(type: .system)
+        favourite.setImage(UIImage(named: "star"), for: .normal)
+        favourite.sizeToFit()
         //button.addTarget(self, action: #selector(self.someAction), forControlEvents: .TouchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: favourite)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +70,10 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showUser", sender: nil)
+    }
+
     // MARK: UICollectionViewDelegate
 
     /*
@@ -100,6 +104,20 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
     
     }
     */
+
+     // MARK: - Navigation
+
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+        if segue.identifier == "showUser" {
+            
+        }
+     }
+
+
+    
 }
 
     extension IndexCollectionViewController : UICollectionViewDelegateFlowLayout {
