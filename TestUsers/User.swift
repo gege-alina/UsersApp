@@ -39,14 +39,28 @@ class User: NSObject {
     var nationality: String?
 
     init(withDict dict: Dictionary<String, Any>) {
-        if let results:[Any] = dict[Constants.resultsKey] as? [Any] {
-            //val : array
-            for val in results {
-//                if let gender = val[Constants.genderKey] {
-//                    self.gender = gender
-//                }
+        if let val = dict[Constants.nameKey] as? Dictionary<String, Any> {
+            if let title = val[Constants.titleKey] as? String {
+                self.titleName = title
+            }
+            if let firstName = val[Constants.firstKey] as? String {
+                self.firstName = firstName
+            }
+            if let lastName = val[Constants.lastKey] as? String {
+                self.lastName = lastName
             }
         }
-    }
+        if let dateOfBirth = dict[Constants.dateOfBirthKey] as? String {
+            self.dob = dateOfBirth
+        }
+        if let nationality = dict[Constants.nationalityKey] as? String {
+            self.nationality = nationality
+        }
+        if let picture = dict[Constants.pictureKey] as? Dictionary<String, Any> {
+            if let thumbnail = picture[Constants.thumbnailKey] as? String {
+                self.thumbnailPicture = thumbnail
+            }
+        }
 
+    }
 }

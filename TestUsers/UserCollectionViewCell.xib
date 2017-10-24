@@ -19,21 +19,21 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WU7-SR-bps">
-                        <rect key="frame" x="25" y="5" width="50" height="50"/>
+                        <rect key="frame" x="25" y="10" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="ID0-Aa-kMw"/>
                             <constraint firstAttribute="height" constant="50" id="fbU-5S-k7S"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBo-9M-NjD">
-                        <rect key="frame" x="0.0" y="60" width="100" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="0.0" y="65" width="100" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUS-AT-73Z">
-                        <rect key="frame" x="0.0" y="81" width="100" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="0.0" y="82" width="100" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +45,7 @@
                 <constraint firstItem="MUS-AT-73Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BFf-lv-oSr"/>
                 <constraint firstAttribute="trailing" secondItem="MUS-AT-73Z" secondAttribute="trailing" id="VqF-w0-Dq3"/>
                 <constraint firstItem="MUS-AT-73Z" firstAttribute="top" secondItem="wBo-9M-NjD" secondAttribute="bottom" id="Vti-Op-g7W"/>
-                <constraint firstItem="WU7-SR-bps" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="WiK-A4-KgS"/>
+                <constraint firstItem="WU7-SR-bps" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="WiK-A4-KgS"/>
                 <constraint firstItem="MUS-AT-73Z" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Yod-oL-Lhj"/>
                 <constraint firstItem="wBo-9M-NjD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aU6-py-HIc"/>
                 <constraint firstAttribute="trailing" secondItem="wBo-9M-NjD" secondAttribute="trailing" id="ct0-Nc-Vok"/>

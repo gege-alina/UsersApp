@@ -44,7 +44,6 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
             if let results = users[Constants.resultsKey] as? [Dictionary<String, Any>]{
                 for user in results {
                     let newUser = User(withDict: user)
-                    print(newUser)
                     weakSelf.allUsers?.append(newUser)
                 }
                 DispatchQueue.main.async {
@@ -89,7 +88,7 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserCollectionViewCell
     
         // Configure the cell
-        cell.user = self.allUsers?[indexPath.item]
+        cell.configureWithUser(allUsers![indexPath.item])
 
         return cell
     }

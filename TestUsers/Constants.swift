@@ -10,6 +10,7 @@ import UIKit
 
 struct Constants {
     static let showUsersSegue = "showUser"
+    static let dateFormat = "yyyy-MM-dd HH:mm:ss"
     //json keys
     static let resultsArray = "results"
     static let genderKey = "gender"
