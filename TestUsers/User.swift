@@ -19,7 +19,7 @@ class User: NSObject {
     var street: String?
     var city: String?
     var state: String?
-    var postcode: Int?
+    var postcode: NSNumber?
 
     var email: String?
     var username: String?
@@ -28,6 +28,10 @@ class User: NSObject {
     var md5: String?
     var sha1: String?
     var sha256: String?
+
+    //id
+    var idName: String?
+    var idValue: String?
 
     var dob: String?
     var registered: String?
@@ -53,8 +57,41 @@ class User: NSObject {
         if let dateOfBirth = dict[Constants.dateOfBirthKey] as? String {
             self.dob = dateOfBirth
         }
+        if let login = dict[Constants.loginKey] as? Dictionary<String, Any> {
+            if let username = login[Constants.usernameKey] as? String {
+                self.username = username
+            }
+        }
+        if let id = dict[Constants.idKey] as? Dictionary<String, Any> {
+            if let name = id[Constants.nameKey] as? String {
+                self.idName = name
+            }
+            if let value = id[Constants.valueKey] as? String {
+                self.idValue = value
+            }
+        }
         if let nationality = dict[Constants.nationalityKey] as? String {
             self.nationality = nationality
+        }
+        if let email = dict[Constants.emailKey] as? String {
+            self.email = email
+        }
+        if let phone = dict[Constants.phoneKey] as? String {
+            self.phone = phone
+        }
+        if let location = dict[Constants.locationKey] as? Dictionary<String, Any> {
+            if let street = location[Constants.streetKey] as? String {
+                self.street = street
+            }
+            if let city = location[Constants.cityKey] as? String {
+                self.city = city
+            }
+            if let state = location[Constants.stateKey] as? String {
+                self.state = state
+            }
+            if let postcode = location[Constants.postcodeKey] as? NSNumber {
+                self.postcode = postcode
+            }
         }
         if let picture = dict[Constants.pictureKey] as? Dictionary<String, Any> {
             if let thumbnail = picture[Constants.thumbnailKey] as? String {

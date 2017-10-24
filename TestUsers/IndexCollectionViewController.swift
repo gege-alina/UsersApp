@@ -94,7 +94,7 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Constants.showUsersSegue, sender: nil)
+        performSegue(withIdentifier: Constants.showUsersSegue, sender: indexPath)
     }
 
     // MARK: UICollectionViewDelegate
@@ -135,7 +135,10 @@ class IndexCollectionViewController: UIViewController, UICollectionViewDataSourc
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
         if segue.identifier == Constants.showUsersSegue {
-            
+            if let destination = segue.destination as? UserPageViewController,
+                let indexPath = sender as? IndexPath {
+                destination.user = self.allUsers?[indexPath.item]
+            }
         }
      }
 }

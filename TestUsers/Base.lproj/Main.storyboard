@@ -263,6 +263,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="y2E-Bh-pfq" id="SqB-E2-gMQ"/>
                         <outlet property="emailLabel" destination="N2e-7O-hS6" id="Ik1-MD-jY3"/>
+                        <outlet property="idLabel" destination="KYs-nY-kCD" id="APA-SF-7Km"/>
                         <outlet property="imageView" destination="i55-8F-Sip" id="V8e-3f-faQ"/>
                         <outlet property="phoneLabel" destination="B5m-l1-nH2" id="Zxn-GC-ldo"/>
                         <outlet property="subtitleLabel" destination="6I5-LN-0KN" id="86D-Gk-xlC"/>

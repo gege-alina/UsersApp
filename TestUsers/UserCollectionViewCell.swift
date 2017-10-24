@@ -25,7 +25,7 @@ class UserCollectionViewCell: UICollectionViewCell {
         if let thumbnail = user.thumbnailPicture {
             self.imageView.loadImageUsingCache(withUrl: thumbnail)
             self.imageView.layer.masksToBounds = true
-            self.imageView.layer.cornerRadius = 25
+            self.imageView.layer.cornerRadius = 27
         }
         var name:String = ""
         if let firstName = user.firstName {
