@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import MessageUI
 
 class UserPageViewController: UIViewController {
 
@@ -15,7 +17,7 @@ class UserPageViewController: UIViewController {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet var phoneTextField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     
@@ -35,6 +37,11 @@ class UserPageViewController: UIViewController {
         //button.addTarget(self, action: #selector(self.someAction), forControlEvents: .TouchUpInside)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favourite), UIBarButtonItem(customView: button)]
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(emailLabelTapped))
+        tapGesture.numberOfTapsRequired = 1
+        self.emailLabel.isUserInteractionEnabled = true
+        self.emailLabel.addGestureRecognizer(tapGesture)
+        
         configureWithUserInfo()
     }
 
@@ -91,9 +98,9 @@ class UserPageViewController: UIViewController {
         }
         if let user = self.user,
             let phone = user.phone {
-            self.phoneLabel.text = phone
+            self.phoneTextField.text = phone
         } else {
-            self.phoneLabel.text = "-"
+            self.phoneTextField.text = "-"
         }
         if let user = self.user,
             let address = user.street {
@@ -109,15 +116,57 @@ class UserPageViewController: UIViewController {
             self.idLabel.text = "-"
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @objc private func emailLabelTapped() {
+        self.sendEmail()
     }
-    */
+    
+    private func callNumber(phoneNumber:String) {
+        
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(phoneCallURL as URL)
+            }
+        }
+    }
 
+}
+
+extension UserPageViewController: MFMailComposeViewControllerDelegate {
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            guard let user = self.user,
+                let email = user.email else {
+                return
+            }
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([email])
+            mail.setSubject("Hello")
+            mail.setMessageBody("<p>Hello!</p>", isHTML: true)
+            self.present(mail, animated: true)
+        } else {
+            let sendMailErrorAlert = UIAlertController.init(title: "Error",
+                                                            message: "Unable to send email. Please check your email " +
+                "settings and try again.", preferredStyle: .alert)
+            sendMailErrorAlert.addAction(UIAlertAction.init(title: "OK",
+                                                            style: .default, handler: nil))
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension UserPageViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == self.phoneTextField {
+            callNumber(phoneNumber: self.phoneTextField.text!)
+        }
+        return false
+    }
 }
