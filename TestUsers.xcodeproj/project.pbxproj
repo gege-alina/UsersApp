@@ -113,20 +113,16 @@
 		2E0592AB1F9A3EEE00B2C4AB /* TestUsers */ = {
 			isa = PBXGroup;
 			children = (
+				2E9306DA1FA0E302002ECD8F /* Managers */,
+				2E9306D91FA0E2F7002ECD8F /* Models */,
+				2E9306D81FA0E2EB002ECD8F /* Helpers */,
+				2E9306D71FA0E2DF002ECD8F /* Main pages */,
+				2E9306D61FA0E2CE002ECD8F /* User Cell */,
 				2E0592AC1F9A3EEE00B2C4AB /* AppDelegate.swift */,
-				2E0633BD1F9F3352002857FC /* IndexCollectionViewController.swift */,
-				2E0633BB1F9F2FB0002857FC /* UserPageViewController.swift */,
 				2E0592B01F9A3EEE00B2C4AB /* Main.storyboard */,
 				2E0592B31F9A3EEE00B2C4AB /* Assets.xcassets */,
 				2E0592B51F9A3EEE00B2C4AB /* LaunchScreen.storyboard */,
 				2E0592B81F9A3EEE00B2C4AB /* Info.plist */,
-				2E0633BF1F9F3ABE002857FC /* UserCollectionViewCell.swift */,
-				2E0633C01F9F3ABE002857FC /* UserCollectionViewCell.xib */,
-				2E0633C31F9F4B27002857FC /* User.swift */,
-				2E0633C51F9F4E70002857FC /* Constants.swift */,
-				2E0633C71F9F66F0002857FC /* APIManager.swift */,
-				2E0633C91F9F6D10002857FC /* String+Extensions.swift */,
-				2E0633CB1F9F7268002857FC /* ImageView+Extensions.swift */,
 			);
 			path = TestUsers;
 			sourceTree = "<group>";
@@ -147,6 +143,50 @@
 				2E0592CE1F9A3EEE00B2C4AB /* Info.plist */,
 			);
 			path = TestUsersUITests;
+			sourceTree = "<group>";
+		};
+		2E9306D61FA0E2CE002ECD8F /* User Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E0633BF1F9F3ABE002857FC /* UserCollectionViewCell.swift */,
+				2E0633C01F9F3ABE002857FC /* UserCollectionViewCell.xib */,
+			);
+			path = "User Cell";
+			sourceTree = "<group>";
+		};
+		2E9306D71FA0E2DF002ECD8F /* Main pages */ = {
+			isa = PBXGroup;
+			children = (
+				2E0633BD1F9F3352002857FC /* IndexCollectionViewController.swift */,
+				2E0633BB1F9F2FB0002857FC /* UserPageViewController.swift */,
+			);
+			path = "Main pages";
+			sourceTree = "<group>";
+		};
+		2E9306D81FA0E2EB002ECD8F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2E0633C51F9F4E70002857FC /* Constants.swift */,
+				2E0633C91F9F6D10002857FC /* String+Extensions.swift */,
+				2E0633CB1F9F7268002857FC /* ImageView+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2E9306D91FA0E2F7002ECD8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E0633C31F9F4B27002857FC /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2E9306DA1FA0E302002ECD8F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2E0633C71F9F66F0002857FC /* APIManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

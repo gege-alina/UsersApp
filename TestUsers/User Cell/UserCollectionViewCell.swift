@@ -29,11 +29,11 @@ class UserCollectionViewCell: UICollectionViewCell {
         }
         var name:String = ""
         if let firstName = user.firstName {
-            name += firstName
+            name += firstName.capitalized
             name += " "
         }
         if let lastName = user.lastName {
-            name += lastName
+            name += lastName.capitalized
         }
         self.titleLabel.text = name
 
