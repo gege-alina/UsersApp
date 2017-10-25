@@ -41,6 +41,11 @@ class UserPageViewController: UIViewController {
         tapGesture.numberOfTapsRequired = 1
         self.emailLabel.isUserInteractionEnabled = true
         self.emailLabel.addGestureRecognizer(tapGesture)
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        self.imageView.isUserInteractionEnabled = true
+        self.imageView.addGestureRecognizer(tapGestureRecognizer)
         
         configureWithUserInfo()
     }
@@ -134,6 +139,29 @@ class UserPageViewController: UIViewController {
                 UIApplication.shared.openURL(addressURL as URL)
             }
         }
+    }
+
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let newImageView = UIImageView()
+        if let user = self.user,
+            let picture = user.largePicture {
+            newImageView.loadImageUsingCache(withUrl: picture)
+        }
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
 
 }

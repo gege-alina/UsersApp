@@ -97,6 +97,12 @@ class User: NSObject {
             if let thumbnail = picture[Constants.thumbnailKey] as? String {
                 self.thumbnailPicture = thumbnail
             }
+            if let medium = picture[Constants.mediumKey] as? String {
+                self.mediumPicture = medium
+            }
+            if let large = picture[Constants.largeKey] as? String {
+                self.largePicture = large
+            }
         }
 
     }
