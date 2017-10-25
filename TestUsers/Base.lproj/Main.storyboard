@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -201,12 +201,16 @@
                                 <color key="textColor" red="1" green="0.59951449243584654" blue="0.36457380427125197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2E-Bh-pfq">
-                                <rect key="frame" x="130" y="233.5" width="235" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vrV-Rg-BOr">
+                                <rect key="frame" x="130" y="233" width="235" height="15"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vho-wO-bu3" id="uoy-bI-IaL"/>
+                                </connections>
+                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywu-PC-bu0" userLabel="Separator">
                                 <rect key="frame" x="0.0" y="258" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -223,18 +227,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vrV-Rg-BOr" firstAttribute="trailing" secondItem="uhD-mS-CnZ" secondAttribute="trailing" id="1JB-a0-egd"/>
                             <constraint firstItem="Psz-Q6-FFO" firstAttribute="top" secondItem="S1h-eT-WSH" secondAttribute="top" constant="10" id="2Sd-fH-yAT"/>
                             <constraint firstItem="N2e-7O-hS6" firstAttribute="top" secondItem="UHp-cF-mpG" secondAttribute="top" id="3Rt-3S-lLg"/>
-                            <constraint firstItem="y2E-Bh-pfq" firstAttribute="leading" secondItem="uhD-mS-CnZ" secondAttribute="leading" id="5BL-gy-hZx"/>
                             <constraint firstItem="Psz-Q6-FFO" firstAttribute="leading" secondItem="u6f-eF-4AX" secondAttribute="leading" id="5G4-Ed-syQ"/>
                             <constraint firstItem="uhD-mS-CnZ" firstAttribute="top" secondItem="u6f-eF-4AX" secondAttribute="top" id="Alh-Im-Rnm"/>
                             <constraint firstItem="0EJ-te-kBa" firstAttribute="trailing" secondItem="nF8-4D-Oix" secondAttribute="trailing" id="ChQ-la-HqD"/>
+                            <constraint firstItem="vrV-Rg-BOr" firstAttribute="top" secondItem="Psz-Q6-FFO" secondAttribute="top" id="D5c-J4-vHu"/>
                             <constraint firstItem="lft-iE-Phx" firstAttribute="leading" secondItem="N2e-7O-hS6" secondAttribute="leading" id="DRc-wE-8RB"/>
                             <constraint firstItem="w4U-Cj-CCU" firstAttribute="trailing" secondItem="0EJ-te-kBa" secondAttribute="trailing" id="DZW-4e-5KN"/>
                             <constraint firstItem="UHp-cF-mpG" firstAttribute="top" secondItem="f3c-jH-Vus" secondAttribute="top" constant="10" id="Ezs-ei-FGr"/>
                             <constraint firstItem="UHp-cF-mpG" firstAttribute="leading" secondItem="u6f-eF-4AX" secondAttribute="leading" id="Fm6-rB-MXN"/>
                             <constraint firstAttribute="trailing" secondItem="S1h-eT-WSH" secondAttribute="trailing" id="H4I-yp-4lM"/>
-                            <constraint firstItem="y2E-Bh-pfq" firstAttribute="trailing" secondItem="uhD-mS-CnZ" secondAttribute="trailing" id="IEz-in-nyY"/>
                             <constraint firstItem="u6f-eF-4AX" firstAttribute="top" secondItem="nF8-4D-Oix" secondAttribute="top" constant="10" id="Ic8-Zv-IuO"/>
                             <constraint firstItem="rdn-Yt-nuM" firstAttribute="top" secondItem="UHp-cF-mpG" secondAttribute="bottom" constant="10" id="Md6-Ha-0F3"/>
                             <constraint firstAttribute="trailing" secondItem="Ywu-PC-bu0" secondAttribute="trailing" id="Mwa-ka-W68"/>
@@ -244,6 +248,7 @@
                             <constraint firstItem="Ywu-PC-bu0" firstAttribute="top" secondItem="Psz-Q6-FFO" secondAttribute="bottom" constant="10" id="R3S-4b-GSW"/>
                             <constraint firstItem="Ywu-PC-bu0" firstAttribute="leading" secondItem="WZ0-03-Pko" secondAttribute="leading" id="T9n-43-NxV"/>
                             <constraint firstItem="14b-0H-Zt8" firstAttribute="leading" secondItem="u6f-eF-4AX" secondAttribute="leading" id="UIv-og-eQ3"/>
+                            <constraint firstItem="vrV-Rg-BOr" firstAttribute="leading" secondItem="uhD-mS-CnZ" secondAttribute="leading" id="Wv5-SO-oF4"/>
                             <constraint firstItem="u6f-eF-4AX" firstAttribute="leading" secondItem="0EJ-te-kBa" secondAttribute="leading" id="X1i-d5-CxZ"/>
                             <constraint firstItem="0EJ-te-kBa" firstAttribute="trailing" secondItem="uhD-mS-CnZ" secondAttribute="trailing" constant="10" id="XLs-jH-oPN"/>
                             <constraint firstItem="N2e-7O-hS6" firstAttribute="leading" secondItem="uhD-mS-CnZ" secondAttribute="leading" id="XN7-p6-0et"/>
@@ -257,7 +262,6 @@
                             <constraint firstItem="KYs-nY-kCD" firstAttribute="centerX" secondItem="WZ0-03-Pko" secondAttribute="centerX" id="fU8-WZ-aEV"/>
                             <constraint firstItem="uhD-mS-CnZ" firstAttribute="leading" secondItem="u6f-eF-4AX" secondAttribute="trailing" constant="15" id="fok-yF-QNn"/>
                             <constraint firstItem="14b-0H-Zt8" firstAttribute="trailing" secondItem="u6f-eF-4AX" secondAttribute="trailing" id="h4M-LE-Npn"/>
-                            <constraint firstItem="y2E-Bh-pfq" firstAttribute="top" secondItem="Psz-Q6-FFO" secondAttribute="top" id="hac-06-z5C"/>
                             <constraint firstItem="S1h-eT-WSH" firstAttribute="top" secondItem="14b-0H-Zt8" secondAttribute="bottom" constant="10" id="my5-O1-6aJ"/>
                             <constraint firstItem="lft-iE-Phx" firstAttribute="top" secondItem="14b-0H-Zt8" secondAttribute="top" id="ndS-BW-4Ev"/>
                             <constraint firstItem="N2e-7O-hS6" firstAttribute="trailing" secondItem="uhD-mS-CnZ" secondAttribute="trailing" id="nzs-A4-5pB"/>
@@ -272,7 +276,7 @@
                         <viewLayoutGuide key="safeArea" id="0EJ-te-kBa"/>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="y2E-Bh-pfq" id="SqB-E2-gMQ"/>
+                        <outlet property="adressTextField" destination="vrV-Rg-BOr" id="rsx-Iy-RUx"/>
                         <outlet property="emailLabel" destination="N2e-7O-hS6" id="Ik1-MD-jY3"/>
                         <outlet property="idLabel" destination="KYs-nY-kCD" id="APA-SF-7Km"/>
                         <outlet property="imageView" destination="i55-8F-Sip" id="V8e-3f-faQ"/>

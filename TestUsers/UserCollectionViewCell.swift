@@ -47,7 +47,7 @@ class UserCollectionViewCell: UICollectionViewCell {
             let yrs = Calendar.current.dateComponents(requestedComponent, from: date, to: Date()).month!/12
             detail += "\(yrs)"
             detail += " years from "
-            detail += nat
+            detail += nat.flag()
         }
         self.subtitleLabel.text = detail
     }
